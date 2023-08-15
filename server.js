@@ -18,21 +18,7 @@ app.use(bodyParser.raw({ type: 'application/json' }));
 // database configuration
 
 
-// middleware
-const userAuth = {
-    isLogin: true,
-    isAdmin: false,
-}
-app.use((req, res, next) => {
-    if (userAuth.isLogin) {
-        next();
-    }
-    else {
-        return res.json({
-            message: "Invalid login credentials "
-        })
-    }
-})
+
 // routes
 // user Route
 app.use("/api/user", userRoutes)

@@ -3,7 +3,7 @@
 LiveSite : 
 
 # Technology : 
--  express dotenv mongoose nodemon 
+-  express dotenv mongoose nodemon jsonwebtoken
 
 # Design Structure: 
 
@@ -11,4 +11,27 @@ LiveSite :
 
 # APIS Point 
 
-- 
+### Register 
+- /api/user/register
+
+```javascript 
+
+{
+    "firstName":"admin", 
+    "lastName":"admin", 
+    "email":"admin@email.com", 
+    "password":"123456"
+}
+``` 
+
+### Login
+ - /api/user/login 
+
+ ```javascript 
+
+{    
+    "email":"admin@email.com", 
+    "password":"123456"
+}
+``` 
+

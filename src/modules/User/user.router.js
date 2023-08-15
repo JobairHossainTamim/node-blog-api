@@ -1,31 +1,12 @@
 const express = require('express');
+const { registerCtrl, loginCtrl, userProfileCtrl } = require('./user.ctrl');
 const router = express.Router();
 
 // Register
-router.post("/register", async (req, res) => {
-    try {
-
-        res.json({
-            status: "Register Success",
-            data: "register"
-        })
-    } catch (error) {
-        res.json(error.message)
-    }
-})
+router.post("/register", registerCtrl);
 
 // Login
-router.post("/login", async (req, res) => {
-    try {
-
-        res.json({
-            status: "Login Success",
-            data: "Login"
-        })
-    } catch (error) {
-        res.json(error.message)
-    }
-})
+router.post("/login", loginCtrl);
 // All User
 router.get("/", async (req, res) => {
     try {
@@ -39,17 +20,7 @@ router.get("/", async (req, res) => {
     }
 })
 //Get Profile id
-router.get("/:id", async (req, res) => {
-    try {
-
-        res.json({
-            status: "Success",
-            data: "register"
-        })
-    } catch (error) {
-        res.json(error.message)
-    }
-})
+router.get("/:id", userProfileCtrl)
 // Delete
 router.delete("/:id", async (req, res) => {
     try {
