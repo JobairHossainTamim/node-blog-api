@@ -1,5 +1,6 @@
 const express = require('express');
 const { registerCtrl, loginCtrl, userProfileCtrl } = require('./user.ctrl');
+const isLogin = require('../../middleware/isLogin');
 const router = express.Router();
 
 // Register
@@ -20,7 +21,7 @@ router.get("/", async (req, res) => {
     }
 })
 //Get Profile id
-router.get("/:id", userProfileCtrl)
+router.get("/:id", isLogin, userProfileCtrl)
 // Delete
 router.delete("/:id", async (req, res) => {
     try {
